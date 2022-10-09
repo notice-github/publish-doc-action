@@ -86,7 +86,7 @@ const groupByArticle = (blocks) => {
 
 const uploadToNotice = async (articles) => {
 	const bms = axios.create({
-		baseURL: 'https://bms.notice.studio',
+		baseURL: 'https://bms.notice-staging.studio',
 		headers: {
 			'api-key': process.env.API_KEY,
 		},
