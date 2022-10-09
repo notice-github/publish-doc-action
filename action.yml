@@ -1,0 +1,5 @@
+name: "Publish Doc Action"
+description: "Publish your README.md to notice.studio as a documentation"
+runs:
+  using: node16
+  main: index.js
