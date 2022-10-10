@@ -106,7 +106,7 @@ const uploadToNotice = async (articles) => {
 
 	for (let article of articles) {
 		if (article.blocks == null || article.blocks.length <= 0) continue
-		
+
 		const { data } = await bms.post('/blocks', {
 			type: article.type,
 			data: article.data,
@@ -140,6 +140,5 @@ try {
 	core.notice('Upload blocks to Notice')
 	await uploadToNotice(articles)
 } catch (ex) {
-	throw ex
-	// core.setFailed(ex.message)
+	core.setFailed(ex)
 }

@@ -4,6 +4,7 @@ export const parseText = (children) => {
 	for (let child of children) {
 		switch (child.type) {
 			case 'text':
+			case 'inlineCode':
 				content += child.value
 				break
 			case 'paragraph':
