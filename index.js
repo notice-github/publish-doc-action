@@ -121,8 +121,10 @@ try {
 	if (!process.env.API_KEY) throw new Error('No API_KEY!')
 	if (!process.env.PROJECT_ID) throw new Error('No PROJECT_ID!')
 
-	core.notice('Reading README.md')
-	const content = await readFile('README.md')
+	const entryFile = process.env.ENTRY_FILE ?? 'README.md'
+
+	core.notice(`Reading ${entryFile}`)
+	const content = await readFile(entryFile)
 
 	core.notice('Parsing markdown')
 	const markdown = unified().use(remarkParse).use(remarkGfm).parse(content)
