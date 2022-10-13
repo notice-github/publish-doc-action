@@ -84,14 +84,14 @@ const groupByArticle = (blocks) => {
 	return articles
 }
 
-const uploadToNotice = async (articles) => {
-	const bms = axios.create({
-		baseURL: 'https://bms.notice.studio',
-		headers: {
-			'api-key': process.env.API_KEY,
-		},
-	})
+const bms = axios.create({
+	baseURL: 'https://bms.notice.studio',
+	headers: {
+		'api-key': process.env.API_KEY,
+	},
+})
 
+const uploadToNotice = async (articles) => {
 	const {
 		data: { data: project },
 	} = await bms.get(`/blocks/${process.env.PROJECT_ID}`)
